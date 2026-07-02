@@ -1,7 +1,10 @@
 name: Build and Push for Release
+# 添加必需的权限
 permissions:
   contents: read
-  packages: write        # 推送到 GHCR 需要
+  packages: write
+  attestations: write
+  id-token: write       # 推送到 GHCR 需要
 on:
   workflow_dispatch:
     inputs:
