@@ -79,19 +79,10 @@ jobs:
             context: ./proxy
 
         arch:
-          - arch_name: amd64
-            runs_on: ubuntu-latest
-            platform: linux/amd64
           - arch_name: arm64
             runs_on: ubuntu-24.04-arm
             platform: linux/arm64
 
-        exclude:
-          - image: { name: kfp-metadata-writer }
-            arch: { arch_name: arm64 }
-
-          - image: { name: kfp-inverse-proxy-agent }
-            arch: { arch_name: arm64 }
 
     uses: ./.github/workflows/build-and-push.yml
     secrets: inherit
